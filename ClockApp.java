@@ -2,6 +2,8 @@ import java.util.Scanner;
 
 public class ClockApp {
     private double hours;
+    private double minutes;
+
    
     public void setHours(double hours) {
         this.hours = hours;
@@ -9,6 +11,14 @@ public class ClockApp {
 
     public double getHours() {
         return this.hours;
+    }
+
+    public void setMinutes(double minutes) {
+        this.minutes = minutes;
+    }
+
+    public double getMinutes() {
+        return this.minutes;
     }
 
     public static void ShowSelection() {
@@ -40,7 +50,25 @@ public class ClockApp {
             double totalSeconds = hours * 3600;
             System.out.println("Hours to Seconds: " + totalSeconds + SecondsLabel);
         }
-           
+        public void MinutesToHours() {
+            Scanner entervalue = new Scanner(System.in);
+            System.out.print("Enter value: ");
+            double ValueInput = entervalue.nextDouble();
+            double minutes = ValueInput;
+            String hourLabel = (ValueInput == 1) ? " hours" : " hour";
+            double totalHours = minutes * 1 / 60;
+            System.out.println("Minutes to Hours: " + totalHours + hourLabel);
+        }
+    
+        public void MinutesToSeconds() {
+            Scanner entervalue = new Scanner(System.in);
+            System.out.print("Enter value: ");
+            double ValueInput = entervalue.nextDouble();
+            double minutes = ValueInput;
+            String SecondsLabel = (ValueInput == 1) ? " seconds" : " second";
+            double totalSeconds = minutes * 60;
+            System.out.println("Hours to Minutes " + totalSeconds + SecondsLabel);
+        }
     public static void main(String[] args) {
     ClockApp method = new ClockApp();
     Scanner in = new Scanner(System.in);
@@ -61,6 +89,14 @@ public class ClockApp {
 
             case 2:
                 method.HoursToSeconds();
+                break;
+
+            case 3:
+                method.MinutesToHours();
+                break;
+
+            case 4:
+                method.MinutesToSeconds();
                 break;
 
            
